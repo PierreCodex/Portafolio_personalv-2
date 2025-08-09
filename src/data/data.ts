@@ -79,14 +79,14 @@ export const education = [
     {
     degree: 'ARQUITECTURA DE PLATAFORMAS Y SERVICIOS DE TECNOLOGÍAS DE LA INFORMACIÓN',
     institution: 'Instituto de Educacion Superior Tecnologico Publico',
-    start: 'Ene 2024',
-    end: 'Oct 2024',
+    start: 'Abril 2021',
+    end: 'Dic 2023',
     location: 'Sullana, Perú',
     highlight: false
   },
   {
     degree: 'Ingeniería de Sistemas',
-    institution: 'Universidad Nacional Ejemplo',
+    institution: 'Universidad Cesar Vallejo',
     start: 'Mar 2024',
     end: 'En proceso',
     location: 'Piura, Perú',
