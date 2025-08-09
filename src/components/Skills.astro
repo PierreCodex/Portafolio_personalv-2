@@ -1,0 +1,70 @@
+---
+// Migración: usar directamente SVGs de /src/icons en lugar de componentes Astro
+import htmlIcon from '../icons/html.svg';
+import javascriptIcon from '../icons/javascript.svg';
+import phpIcon from '../icons/php.svg';
+import laravelIcon from '../icons/laravel-2.svg';
+import mysqlIcon from '../icons/mysql.svg';
+import gitIcon from '../icons/git.svg';
+import astroIcon from '../icons/astro.svg';
+
+interface SkillItem {
+  name: string;
+  icon: any; // puede ser string o módulo con metadata
+  status?: string;
+  alt?: string;
+}
+
+const skillsList: SkillItem[] = [
+  { name: 'HTML 5', icon: htmlIcon },
+  { name: 'JavaScript', icon: javascriptIcon },
+  { name: 'PHP', icon: phpIcon },
+  { name: 'Laravel', icon: laravelIcon, status: 'En proceso' },
+  { name: 'MySQL', icon: mysqlIcon },
+  { name: 'Git', icon: gitIcon },
+  { name: 'Astro', icon: astroIcon }
+];
+---
+
+<div class="w-full text-[--text-color]">
+  <header class="mb-10 text-center md:text-left">
+    <h2 class="text-3xl font-bold tracking-tight flex items-center gap-2 justify-center md:justify-start">
+      <span class="text-[--first-color]">🛠️ Skills</span>
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-[--first-color] to-[--first-color-light]">Skills</span>
+    </h2>
+    <p class="mt-2 text-sm text-[--text-color-light] max-w-xl mx-auto md:mx-0">
+      Conjunto de tecnologías y herramientas que utilizo o estoy aprendiendo.
+    </p>
+  </header>
+
+  <ul class="skill-grid grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    {skillsList.map((s, i) => (
+      <li 
+        class={`skill-card relative group rounded-xl border border-white/10 dark:border-white/5 bg-white/60 dark:bg-black/40 backdrop-blur-md px-5 py-5 flex flex-col gap-3 shadow-sm overflow-hidden transition-all duration-500 hover:shadow-[0_4px_20px_-2px_rgba(92,130,255,0.25)] hover:border-[--first-color-light]`}
+        style={`--i:${i};`}
+        data-status={s.status ? 'learning' : 'ok'}
+        aria-label={s.status ? `${s.name} (${s.status})` : s.name}
+      >
+        <div class="flex items-start justify-between">
+          <span class="text-3xl relative z-10 drop-shadow-sm flex items-center justify-center w-12 h-12 rounded-lg bg-black/5 dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10">
+            <img src={(typeof s.icon === 'string' ? s.icon : s.icon.src || s.icon)} alt={s.name} class="w-8 h-8 object-contain" loading="lazy" width="32" height="32" />
+          </span>
+          {s.status && (
+            <span class="status-badge text-[10px] uppercase tracking-wide font-semibold px-2 py-1 rounded-md bg-amber-500/20 text-amber-600 dark:text-amber-300 border border-amber-400/30 backdrop-blur-sm">
+              {s.status}
+            </span>
+          )}
+        </div>
+        <h3 class="text-base font-semibold text-[--title-color] dark:text-[--title-color2] relative z-10">
+          {s.name}
+        </h3>
+        <div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div class="absolute -inset-px rounded-xl bg-gradient-to-br from-[--first-color]/25 via-transparent to-[--first-color-light]/20"></div>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full -z-10 opacity-[0.08] group-hover:opacity-[0.15] transition-opacity duration-500 bg-[radial-gradient(circle_at_30%_20%,var(--first-color),transparent_70%)]"></div>
+      </li>
+    ))}
+  </ul>
+
+
+</div>

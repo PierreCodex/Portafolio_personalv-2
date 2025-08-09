@@ -1,0 +1,87 @@
+---
+import { hero } from "../data/data.ts";
+import GitHub from "../components/icons/GitHub.astro";
+import Mail from "../components/icons/Mail.astro";
+import Location from "../components/icons/Location.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+---
+<section id="hero" class="pt-[calc(var(--header-height)+2.5rem)] md:pt-[calc(var(--header-height)+3rem)] px-4 w-full max-w-4xl mx-auto bg-[--gradient-hero] rounded-xl shadow-sm">
+  <div
+    class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 text-[--text-color]"
+  >
+    <!-- Izquierda -->
+    <div class="text-center md:text-left">
+      <h1
+        class="text-4xl font-bold mb-2 text-[--title-color] dark:text-[--title-color2]"
+      >
+        {hero.name}
+        <span>✨</span>
+      </h1>
+
+      <p class="text-xl mb-4 text-gray-400">
+        {hero.role}
+        <span>🧠💻</span>
+      </p>
+
+      <ul class="text-sm space-y-2 text-gray-400">
+        <li class="flex items-center gap-2">
+          <span class="inline-flex w-5 h-5 text-[--text-color]" aria-hidden="true"><Location class="w-5 h-5" /></span>
+          {hero.location}
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="inline-flex w-5 h-5 text-[--text-color]" aria-hidden="true"><Mail class="w-5 h-5" /></span>
+          <a href={`mailto:${hero.email}`} class="hover:underline">{hero.email}</a>
+        </li>
+  {hero.links.map((link) => (
+          <li class="flex items-center gap-2">
+            {link.label === 'GitHub' && (
+              <span class="inline-flex text-[--text-color]" aria-hidden="true"><GitHub class="w-5 h-5" /></span>
+            )}
+            {link.label === 'LinkedIn' && (
+              <span class="inline-flex text-[--text-color]" aria-hidden="true"><LinkedIn class="w-5 h-5" /></span>
+            )}
+            {link.label !== 'GitHub' && link.label !== 'LinkedIn' && (
+              <span aria-hidden="true">{link.icon}</span>
+            )}
+            <a href={link.href} class="hover:underline" rel="noopener noreferrer" target="_blank">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Derecha -->
+    <div
+      class="relative w-60 h-60 rounded-full border-4 border-[--first-color] shadow-[var(--shadow-img)] overflow-hidden"
+    >
+      <img
+        src={hero.avatar}
+        alt={`Foto de ${hero.name}`}
+        class="object-cover w-full h-full"
+      />
+    </div>
+  </div>
+  <!-- Card Description -->
+  <div
+    class="mt-8 rounded-xl border border-[--border-color] dark:border-[--border-color] 
+            bg-white/55 dark:bg-white/5
+            p-6 text-[--text-color] dark:text-[--text-color2] 
+            shadow-[0_4px_18px_-2px_hsla(226,100%,63%,0.25)] backdrop-blur-md relative overflow-hidden"
+  >
+    <div
+      class="absolute left-0 top-0 h-full w-1
+             bg-gradient-to-b from-[--first-color-light] to-[--first-color]
+             rounded-l-lg"
+    >
+    </div>
+    <div class="absolute inset-0 opacity-[0.07] bg-[radial-gradient(circle_at_20%_15%,var(--first-color)_0%,transparent_70%)] pointer-events-none"></div>
+
+    <p class="pl-4 py-2 leading-relaxed relative">
+      <!-- Línea decorativa -->
+      <span class="absolute left-0 top-0 h-full w-1 bg-gradient-hero-line rounded-full"></span>
+
+      {hero.description}
+    </p>
+  </div>
+</section>

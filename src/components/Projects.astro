@@ -1,0 +1,49 @@
+---
+import { projects } from "../data/data.ts";
+---
+<div class="w-full">
+	<header class="mb-10 text-center md:text-left">
+		<h2 class="text-3xl font-bold tracking-tight flex items-center gap-2 justify-center md:justify-start">
+			<span class="text-[--first-color]">🚀 Proyectos</span>
+			<span class="bg-clip-text text-transparent bg-gradient-to-r from-[--first-color] to-[--first-color-light]">Projects</span>
+		</h2>
+		<p class="mt-2 text-sm text-[--text-color-light] max-w-xl mx-auto md:mx-0">
+			Algunos trabajos y ejemplos destacados.
+		</p>
+	</header>
+
+	<ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+		{projects.map((p, i) => (
+			<li class={`project-card relative group rounded-xl border border-[--border-color] dark:border-[--border-color] bg-white/60 dark:bg-white/5 backdrop-blur-md p-5 flex flex-col gap-4 shadow-sm overflow-hidden transition-all duration-500 hover:shadow-[0_4px_22px_-2px_hsla(226,100%,63%,0.35)] hover:border-[--first-color]/60`} style={`--i:${i};`}>
+				{p.highlight && (
+					<span class="absolute top-3 right-3 text-[10px] font-semibold tracking-wide px-2 py-1 rounded-md bg-[--first-color]/15 text-[--first-color] ring-1 ring-[--first-color]/30">Destacado</span>
+				)}
+				<h3 class="text-lg font-semibold text-[--title-color] dark:text-[--title-color2] flex items-center gap-2">
+					{p.title}
+				</h3>
+				<p class="text-sm text-[--text-color-light] dark:text-[--text-color] line-clamp-4 leading-relaxed">
+					{p.description}
+				</p>
+						<div class="flex flex-wrap gap-2 mt-auto">
+							{p.stack.map((tech, idx) => (
+								<span class="tech-chip" style={`--ti:${idx};`}>
+									{tech}
+								</span>
+							))}
+						</div>
+				<div class="flex gap-3 pt-2">
+					{p.repo && (
+						<a href={p.repo} class="inline-flex items-center gap-1 text-xs font-medium text-[--first-color] hover:underline" target="_blank" rel="noopener">Repo</a>
+					)}
+					{p.demo && (
+						<a href={p.demo} class="inline-flex items-center gap-1 text-xs font-medium text-[--first-color] hover:underline" target="_blank" rel="noopener">Demo</a>
+					)}
+				</div>
+				<div class="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+					<div class="absolute -inset-px rounded-xl bg-gradient-to-br from-[--first-color]/25 via-transparent to-[--first-color-light]/25"></div>
+				</div>
+				<div class="absolute top-0 left-0 w-full h-full -z-10 opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500 bg-[radial-gradient(circle_at_25%_20%,var(--first-color),transparent_70%)]"></div>
+			</li>
+		))}
+	</ul>
+</div>
