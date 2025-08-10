@@ -169,6 +169,12 @@ html:not(.js) .project-card { opacity:1; transform:none; animation:none; }
   55% { opacity:1; }
   100% { opacity:1; transform: translateY(0) scale(1); }
 }
+/* Project media styles */
+.project-media { background:linear-gradient(135deg,var(--first-color)/25%,transparent); }
+.project-media .shine { background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,.35) 45%, rgba(255,255,255,.12) 55%, transparent 70%); transform: translateX(-60%) skewX(-12deg); animation: projectShine 3.2s ease-in-out 1.2s infinite; }
+@keyframes projectShine { 0%,65% { transform: translateX(-60%) skewX(-12deg); opacity:0; } 70% { opacity:.9; } 85% { transform: translateX(120%) skewX(-12deg); opacity:0; } 100% { opacity:0; } }
+.group:hover .project-media .shine { animation-play-state: running; }
+.project-fallback { background:linear-gradient(135deg,rgba(92,130,255,.15),rgba(92,130,255,.05)); }
 
 /* Tech chips */
 .tech-chip {

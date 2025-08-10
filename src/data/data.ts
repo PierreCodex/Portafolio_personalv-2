@@ -48,30 +48,47 @@ export const skills = {
   ]
 }
 
-export const projects = [
-  {
-    title: 'Portfolio Personal',
-    description: 'Sitio en Astro optimizado, dark/light mode y animaciones modernas.',
-    stack: ['Astro','TypeScript','TailwindCSS'],
-    repo: '#',
-    demo: '#',
-    highlight: true
+export interface ProjectItem {
+  title: string;
+  description: string;
+  stack: string[];
+  repo?: string;
+  demo?: string;
+  highlight?: boolean;
+  image?: string;
+  imageAlt?: string;
+}
+
+export const projects: ProjectItem[] = [
+
+
+{ 
+  title: 'Sistema de Pedidos para Restaurante', 
+  description: 'Plataforma web en PHP/MySQL con carrito, checkout, generación de audio (TTS) y notificaciones WhatsApp para confirmar pedidos.', 
+  stack: ['PHP','MySQL','JavaScript'], repo: 'https://github.com/PierreCodex/Foodv1', demo: '#', highlight: true,
+  image: '/src/assets/S1.png',
+  imageAlt: 'Captura del sistema de pedidos'
   },
+ 
   {
-    title: 'API Gestión',
-    description: 'API REST modular con autenticación JWT y documentación OpenAPI.',
+    title: '====',
+    description: '===',
     stack: ['Node.js','Express','JWT','Swagger'],
     repo: '#',
     demo: '',
-    highlight: false
+    highlight: false,
+    image: '/src/assets/astro.svg',
+    imageAlt: 'API Gestión'
   },
   {
-    title: 'Dashboard Analítica',
-    description: 'Visualización de métricas en tiempo real con gráficos dinámicos.',
-    stack: ['React','Next.js','Chart.js'],
+    title: '====',
+    description: '=.',
+    stack: ['-','-','-'],
     repo: '#',
     demo: '#',
-    highlight: false
+    highlight: false,
+    image: '/src/assets/background.svg',
+    imageAlt: 'Dashboard en tiempo real'
   }
 ];
 
