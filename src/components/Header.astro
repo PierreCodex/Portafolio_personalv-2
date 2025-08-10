@@ -1,3 +1,9 @@
+---
+
+import logoUrl from '../assets/LogoPCC-1.svg';
+
+
+---
 <header
   class="fixed top-0 left-0 w-full z-[300] border-b border-black/10 dark:border-white/10 md:bg-transparent bg-white/85 dark:bg-[color-mix(in_oklab,var(--body-color2)_92%,black_8%)] md:dark:bg-transparent backdrop-blur supports-[backdrop-filter]:backdrop-blur transition-colors"
 >
@@ -5,7 +11,7 @@
     class="relative flex justify-between items-center py-3 w-full max-w-4xl px-4 mx-auto"
   >
     <div class="flex items-center gap-3">
-      <img class="w-12 h-12" src="/src/assets/LogoPC.svg" alt="Logo" />
+      <img class="w-12 h-12" src={logoUrl.src} alt="Logo" />
       <h1 class="text-xl font-semibold">PierreCodex</h1>
     </div>
 

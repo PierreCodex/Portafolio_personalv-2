@@ -4,6 +4,7 @@ import GitHub from "../components/icons/GitHub.astro";
 import Mail from "../components/icons/Mail.astro";
 import Location from "../components/icons/Location.astro";
 import LinkedIn from "../components/icons/LinkedIn.astro";
+import PerfilUrl from '../assets/profile.jpg';
 ---
 <section id="hero" class="pt-[calc(var(--header-height)+2.5rem)] md:pt-[calc(var(--header-height)+3rem)] px-4 w-full max-w-4xl mx-auto bg-[--gradient-hero] rounded-xl shadow-sm">
   <div
@@ -56,7 +57,7 @@ import LinkedIn from "../components/icons/LinkedIn.astro";
       class="relative w-60 h-60 rounded-full border-4 border-[--first-color] shadow-[var(--shadow-img)] overflow-hidden"
     >
       <img
-        src={hero.avatar}
+        src={PerfilUrl.src}
         alt={`Foto de ${hero.name}`}
         class="object-cover w-full h-full"
       />
