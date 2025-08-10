@@ -15,7 +15,7 @@ export const hero: HeroData = {
   role: "Ingeniero de Sistemas",
   location: "Piura, Perú",
   email: "pierrecodex18@gmail.com",
-  avatar: "/src/assets/img-profile1 (1).jpeg",
+  avatar: "/src/assets/profile.jpeg",
   description: `🚀 Estudiante de Ingeniería de Sistemas con gran entusiasmo por el desarrollo de software y un interés constante en aprender nuevas tecnologías. Me apasiona resolver desafíos complejos y explorar soluciones creativas en diferentes plataformas y entornos. Destaco por mi capacidad de adaptación, pensamiento crítico y motivación por crecer profesionalmente, integrando conocimientos técnicos con un enfoque práctico e innovador. `,
   links: [
     { icon: "🐱", label: "GitHub", href: "#" },
