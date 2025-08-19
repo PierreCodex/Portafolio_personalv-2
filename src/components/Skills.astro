@@ -40,13 +40,13 @@ const skillsList: SkillItem[] = [
   <ul class="skill-grid grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
     {skillsList.map((s, i) => (
       <li 
-        class={`skill-card relative group rounded-xl border border-white/10 dark:border-white/5 bg-white/60 dark:bg-black/40 backdrop-blur-md px-5 py-5 flex flex-col gap-3 shadow-sm overflow-hidden transition-all duration-500 hover:shadow-[0_4px_20px_-2px_rgba(92,130,255,0.25)] hover:border-[--first-color-light]`}
+  class={`skill-card relative group rounded-xl border border-white/10 dark:border-white/5 bg-white/60 dark:bg-black/40 backdrop-blur-md px-5 py-5 flex flex-col gap-3 overflow-hidden transition-all duration-500 hover:shadow-[0_4px_20px_-2px_rgba(92,130,255,0.25)] hover:border-[--first-color-light]`}
         style={`--i:${i};`}
         data-status={s.status ? 'learning' : 'ok'}
         aria-label={s.status ? `${s.name} (${s.status})` : s.name}
       >
         <div class="flex items-start justify-between">
-          <span class="text-3xl relative z-10 drop-shadow-sm flex items-center justify-center w-12 h-12 rounded-lg bg-black/5 dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10">
+          <span class="text-3xl relative z-10 flex items-center justify-center w-12 h-12 rounded-lg bg-black/5 dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10">
             <img src={(typeof s.icon === 'string' ? s.icon : s.icon.src || s.icon)} alt={s.name} class="w-8 h-8 object-contain" loading="lazy" width="32" height="32" />
           </span>
           {s.status && (

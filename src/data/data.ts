@@ -23,6 +23,7 @@ export const hero: HeroData = {
   ],
 };
 // src/data/data.ts
+import S1 from "../assets/S1.png";
 export const skills = {
   categories: [
     {
@@ -66,7 +67,7 @@ export const projects: ProjectItem[] = [
   title: 'Sistema de Pedidos para Restaurante', 
   description: 'Plataforma web en PHP/MySQL con carrito, checkout, generación de audio (TTS) y notificaciones WhatsApp para confirmar pedidos.', 
   stack: ['PHP','MySQL','JavaScript'], repo: 'https://github.com/PierreCodex/Foodv1', demo: '#', highlight: true,
-  image: '/src/assets/S1.png',
+  image: S1.src,
   imageAlt: 'Captura del sistema de pedidos'
   },
  
